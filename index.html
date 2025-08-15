@@ -1,0 +1,296 @@
+index.html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jadwal Kebersihan Cartel 203</title>
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    
+    /* Animasi turun yang seragam dan bergradiasi */
+    @keyframes slideDownUniform {
+      0% { transform: translateY(-110%); opacity: 0; }
+      10% { opacity: 1; }
+      50% { transform: translateY(0%); opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(110%); opacity: 0; }
+    }
+
+    /* Kelas utilitas animasi: seragam */
+    .runUniform { animation: slideDownUniform 5s linear infinite; }
+
+    /* Delay berjenjang agar turun berurutan rapi */
+    .delay-0   { animation-delay: 0s; }
+    .delay-1   { animation-delay: 0.25s; }
+    .delay-2   { animation-delay: 0.5s; }
+    .delay-3   { animation-delay: 0.75s; }
+    .delay-4   { animation-delay: 1s; }
+    .delay-5   { animation-delay: 1.25s; }
+    .delay-6   { animation-delay: 1.5s; }
+
+    /* Pastikan tiap baris rapi dan tidak saling tumpang tindih */
+    .row { will-change: transform, opacity; }
+
+    /* BACKGROUND BARU: gradasi + grid halus + glow bergerak */
+    .bg-wrap {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+      background:
+         linear-gradient(rgba(31,41,67,0.7), rgba(10,15,30,0.7)),
+  url('/roomcartel203.jpg') center center/cover no-repeat;
+    }
+    /* Grid tipis */
+    .bg-grid::before {
+      content: "";
+      position: absolute;
+      inset: -50%;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 40px 40px, 40px 40px;
+      transform: rotate(2deg);
+      opacity: 0.15;
+    }
+    /* Glow bulat bergerak */
+    .orb {
+      position: absolute;
+      border-radius: 9999px;
+      filter: blur(40px);
+      opacity: 0.45;
+      mix-blend-mode: screen;
+      animation: float 18s ease-in-out infinite;
+    }
+    .orb.blue { background: radial-gradient(circle at 30% 30%, rgba(59,130,246,0.9), rgba(59,130,246,0.1)); }
+    .orb.pink { background: radial-gradient(circle at 70% 40%, rgba(244,63,94,0.9), rgba(244,63,94,0.1)); }
+    .orb.teal { background: radial-gradient(circle at 40% 70%, rgba(16,185,129,0.9), rgba(16,185,129,0.1)); }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+      50% { transform: translateY(-30px) translateX(20px) scale(1.05); }
+    }
+
+    /* Badge kecil di kiri */
+    .badge {
+      background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.06));
+      backdrop-filter: blur(6px);
+    }
+
+    /* Glow di teks hari */
+    .day-glow {
+      text-shadow: 0 6px 24px rgba(59,130,246,0.35);
+    }
+
+    /* Card baris - transparan kaca */
+    .row-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow:
+        0 8px 24px rgba(0,0,0,0.28),
+        inset 0 1px 0 rgba(255,255,255,0.10);
+      backdrop-filter: blur(4px);
+    }
+
+    /* Tombol kontrol */
+    .btn { transition: transform .15s ease, opacity .15s ease; }
+    .btn:active { transform: translateY(1px) scale(0.99); opacity: 0.9; }
+
+    /* Responsif: ukuran teks menyesuaikan */
+    .day-text { letter-spacing: 0.5px; }
+  </style>
+</head>
+<body class="min-h-screen text-white selection:bg-blue-500/30 selection:text-white">
+  <!-- BACKGROUND LAYER -->
+  <div class="bg-wrap bg-grid">
+    <div class="orb blue" style="width: 420px; height: 420px; top: 10%; left: 8%; animation-delay: 0s;"></div>
+    <div class="orb pink" style="width: 360px; height: 360px; bottom: 15%; right: 12%; animation-delay: .5s;"></div>
+    <div class="orb teal" style="width: 300px; height: 300px; top: 55%; left: 55%; animation-delay: 1s;"></div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-6 pt-8 pb-10 flex flex-col gap-6 relative">
+    <!-- TITLE CENTERED TOP -->
+    <div class="w-full flex items-center justify-center">
+      <div class="text-center">
+        <h1 class="text-3xl md:text-5xl font-bold tracking-wide drop-shadow-[0_8px_30px_rgba(59,130,246,0.35)]">
+          JADWAL PIKET ROOM 203
+        </h1>
+        <p class="mt-2 text-white/70 text-sm md:text-base">
+          Merendahlah serendah rendahnya, sampai tidak ada orang yang bisa merendahkanmu. dan
+          jaga lah kebersihan agar saldomu dan nafasmu terjaga.
+        </p>
+      </div>
+    </div>
+
+    <!-- Header Controls -->
+    <header class="flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="badge px-3 py-1 rounded-full text-xs md:text-sm text-white/90 border border-white/10">CARTEL</div>
+        <span class="text-base md:text-lg text-white/80">Kontrol</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="toggleBtn" class="btn px-4 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 text-white font-medium shadow-lg shadow-blue-500/25">
+          Jeda
+        </button>
+        <button id="speedBtn" class="btn px-4 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-600 text-white font-medium shadow-lg shadow-indigo-500/25">
+          Kecepatan: Sedang
+        </button>
+        <button id="reverseBtn" class="btn px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white font-medium shadow-lg shadow-emerald-500/25">
+          Arah: Turun
+        </button>
+        <button id="resetBtn" class="btn px-4 py-2 rounded-lg bg-slate-500 hover:bg-slate-600 text-white font-medium shadow-lg shadow-slate-500/25">
+          Reset
+        </button>
+      </div>
+    </header>
+
+    <!-- Area animasi -->
+    <main class="relative mt-2">
+      <!-- Grid 7 baris -->
+      <div class="grid grid-cols-1 gap-4">
+        <!-- Baris 1 -->
+        <div class="row row-card rounded-xl p-5 md:p-6 flex items-center justify-between runUniform delay-0 overflow-hidden">
+          <span class="text-white/70 text-xs md:text-sm">Senin</span>
+          <div class="flex-1 flex items-center justify-center">
+            <div class="day-text text-xl md:text-3xl font-semibold day-glow">耐克 Nike (Coky)</div>
+          </div>
+          <div class="w-8"></div>
+        </div>
+        <!-- Baris 2 -->
+        <div class="row row-card rounded-xl p-5 md:p-6 flex items-center justify-between runUniform delay-1 overflow-hidden">
+          <span class="text-white/70 text-xs md:text-sm">Selasa</span>
+          <div class="flex-1 flex items-center justify-center">
+            <div class="day-text text-xl md:text-3xl font-semibold day-glow">马迪 Madi (Bayu)</div>
+          </div>
+          <div class="w-8"></div>
+        </div>
+        <!-- Baris 3 -->
+        <div class="row row-card rounded-xl p-5 md:p-6 flex items-center justify-between runUniform delay-2 overflow-hidden">
+          <span class="text-white/70 text-xs md:text-sm">Rabu</span>
+          <div class="flex-1 flex items-center justify-center">
+            <div class="day-text text-xl md:text-3xl font-semibold day-glow">硬汉 YingHan (Rendy)</div>
+          </div>
+          <div class="w-8"></div>
+        </div>
+        <!-- Baris 4 -->
+        <div class="row row-card rounded-xl p-5 md:p-6 flex items-center justify-between runUniform delay-3 overflow-hidden">
+          <span class="text-white/70 text-xs md:text-sm">Kamis</span>
+          <div class="flex-1 flex items-center justify-center">
+            <div class="day-text text-xl md:text-3xl font-semibold day-glow">黄家驹 Huang Jia Ju (Penger)</div>
+          </div>
+          <div class="w-8"></div>
+        </div>
+        <!-- Baris 5 -->
+        <div class="row row-card rounded-xl p-5 md:p-6 flex items-center justify-between runUniform delay-4 overflow-hidden">
+          <span class="text-white/70 text-xs md:text-sm">Jumat</span>
+          <div class="flex-1 flex items-center justify-center">
+            <div class="day-text text-xl md:text-3xl font-semibold day-glow">张震岳 Zhang Zhen Yue (Kepinding)</div>
+          </div>
+          <div class="w-8"></div>
+        </div>
+        <!-- Baris 6 -->
+        <div class="row row-card rounded-xl p-5 md:p-6 flex items-center justify-between runUniform delay-5 overflow-hidden">
+          <span class="text-white/70 text-xs md:text-sm">Sabtu</span>
+          <div class="flex-1 flex items-center justify-center">
+            <div class="day-text text-xl md:text-3xl font-semibold day-glow">抽抽 Chou Chou (Ridho)</div>
+          </div>
+          <div class="w-8"></div>
+        </div>
+        <!-- Baris 7 -->
+        <div class="row row-card rounded-xl p-5 md:p-6 flex items-center justify-between runUniform delay-6 overflow-hidden">
+          <span class="text-white/70 text-xs md:text-sm">Minggu</span>
+          <div class="flex-1 flex items-center justify-center">
+            <div class="day-text text-xl md:text-3xl font-semibold day-glow">叶世荣 Ye Shi Rong (AB)</div>
+          </div>
+          <div class="w-8"></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer kecil -->
+    <footer class="pt-2 text-center text-white/50 text-xs">
+      Dibuat oleh Canva Code • Animasi halus dan responsif
+    </footer>
+  </div>
+
+  <script>
+    // Ambil elemen kontrol dan baris
+    const rows = Array.from(document.querySelectorAll('.row'));
+    const toggleBtn = document.getElementById('toggleBtn');
+    const speedBtn = document.getElementById('speedBtn');
+    const reverseBtn = document.getElementById('reverseBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    // State kontrol
+    let paused = false;
+    // Level kecepatan: 0=Pelan, 1=Sedang, 2=Cepat
+    let speedLevel = 1;
+    // Arah: 1 turun, -1 naik
+    let direction = 1;
+
+    // Update kecepatan dengan durasi animasi seragam
+    function applySpeed() {
+      const durations = [7, 5, 3.5]; // detik
+      const d = durations[speedLevel];
+      rows.forEach(r => {
+        r.style.animationDuration = `${d}s`;
+
+        // Pertahankan delay bertingkat
+        const delayClass = Array.from(r.classList).find(c => c.startsWith('delay-'));
+        if (delayClass) {
+          const map = { 'delay-0': 0, 'delay-1': .25, 'delay-2': .5, 'delay-3': .75, 'delay-4': 1, 'delay-5': 1.25, 'delay-6': 1.5 };
+          r.style.animationDelay = `${map[delayClass]}s`;
+        }
+
+        // Arah dan jeda
+        r.style.animationDirection = direction === 1 ? 'normal' : 'reverse';
+        r.style.animationPlayState = paused ? 'paused' : 'running';
+      });
+
+      const label = ['Pelan', 'Sedang', 'Cepat'][speedLevel];
+      speedBtn.textContent = `Kecepatan: ${label}`;
+    }
+
+    // Inisialisasi
+    applySpeed();
+
+    // Tombol Jeda / Lanjut
+    toggleBtn.addEventListener('click', () => {
+      paused = !paused;
+      rows.forEach(r => r.style.animationPlayState = paused ? 'paused' : 'running');
+      toggleBtn.textContent = paused ? 'Lanjut' : 'Jeda';
+    });
+
+    // Tombol Kecepatan
+    speedBtn.addEventListener('click', () => {
+      speedLevel = (speedLevel + 1) % 3;
+      applySpeed();
+    });
+
+    // Tombol Arah
+    reverseBtn.addEventListener('click', () => {
+      direction *= -1;
+      rows.forEach(r => r.style.animationDirection = direction === 1 ? 'normal' : 'reverse');
+      reverseBtn.textContent = direction === 1 ? 'Arah: Turun' : 'Arah: Naik';
+    });
+
+    // Tombol Reset urutan: set semua delay sesuai default agar ritme rapi kembali
+    resetBtn.addEventListener('click', () => {
+      const delays = [0, .25, .5, .75, 1, 1.25, 1.5];
+      rows.forEach((r, i) => {
+        r.style.animationDelay = `${delays[i] ?? 0}s`;
+      });
+      paused = false;
+      toggleBtn.textContent = 'Jeda';
+      direction = 1;
+      reverseBtn.textContent = 'Arah: Turun';
+      applySpeed();
+    });
+
+    // Responsif
+    window.addEventListener('resize', () => {});
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96f65c7b846cfdfd',t:'MTc1NTIzNjQ2OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
